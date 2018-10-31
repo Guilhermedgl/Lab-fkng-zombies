@@ -1,0 +1,59 @@
+* {
+
+    margin: 0;
+    padding: 0;
+}
+
+body {
+
+    font-family: anton;
+    background-color: rgb(39, 211, 91);
+    background-image: url("../topdown-shooter/PNG/Tiles/tile_01.png");
+    background-repeat: repeat;
+
+}
+
+h2 {
+    color: white;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 2.5em;
+    -webkit-text-stroke: 3px;
+    -webkit-text-stroke-color: green;
+
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    font-size: 5em;
+    -webkit-text-stroke: 3px;
+    -webkit-text-stroke-color: green;
+}
+
+#canvas {
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    border: 3px dashed green;
+
+}
+
+.div-start-game {
+    display: flex;
+    justify-content: center;
+}
+
+#start-game {
+    border: 1px solid black;
+    color: green;
+    width: 200px;
+    height: 50px;
+    font-size: 2em;
+    background-color: white;
+    font-family: anton;
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: white;
+}
+
