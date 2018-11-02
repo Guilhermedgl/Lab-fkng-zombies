@@ -8,7 +8,6 @@ let zombiePath = "../topdown-shooter/PNG/Survivor 1/zoimbie1_left.png";
 let arrZombie = [];
 let arrZombie2 = [];
 let arrBullets = [];
-let arrBullets2 = [];
 let objZombie;
 let objZombie2;
 let objSoldier1;
@@ -88,19 +87,76 @@ function move(e) {
       break;
 
     case 32:
-      const objBullet = new Bullet(objSoldier1.x, objSoldier1.y, dir)
+      const objBullet = new Bullet(dirBulletX(), dirBulletY(), dir)
       arrBullets.push(objBullet)
       break;
 
     case 191:
-      const objBullet2 = new Bullet(objSoldier2.x, objSoldier2.y, dirP2);
+      const objBullet2 = new Bullet(dirBulletX2(), dirBulletY2(), dirP2);
       arrBullets.push(objBullet2);
-      console.log(arrBullets2, dirP2)
       break;
-
   }
 }
 
+function dirBulletY2() {
+  if (dirP2 === 'Cima') {
+    return objSoldier2.y + 3
+  }
+  if (dirP2 === 'Esquerda') {
+    return objSoldier2.y + 15
+  }
+  if (dirP2 === 'Baixo') {
+    return objSoldier2.y + 35
+  }
+  if (dirP2 === 'Direita') {
+    return objSoldier2.y + 30
+  }
+}
+
+function dirBulletX2() {
+  if (dirP2 === 'Cima') {
+    return objSoldier2.x + 30
+  }
+  if (dirP2 === 'Esquerda') {
+    return objSoldier2.x - 5
+  }
+  if (dirP2 === 'Baixo') {
+    return objSoldier2.x + 8
+  }
+  if (dirP2 === 'Direita') {
+    return objSoldier2.x + 30
+  }
+}
+
+function dirBulletY() {
+  if (dir === 'Cima') {
+    return objSoldier1.y + 3
+  }
+  if (dir === 'Esquerda') {
+    return objSoldier1.y + 15
+  }
+  if (dir === 'Baixo') {
+    return objSoldier1.y + 35
+  }
+  if (dir === 'Direita') {
+    return objSoldier1.y + 30
+  }
+}
+
+function dirBulletX() {
+  if (dir === 'Cima') {
+    return objSoldier1.x + 30
+  }
+  if (dir === 'Esquerda') {
+    return objSoldier1.x - 5
+  }
+  if (dir === 'Baixo') {
+    return objSoldier1.x + 8
+  }
+  if (dir === 'Direita') {
+    return objSoldier1.x + 30
+  }
+}
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -133,25 +189,6 @@ function reDrawBullets() {
   });
 }
 
-// function reDrawBullets2() {
-
-//   arrBullets2.forEach(function (bullet2) {
-//     if (bullet2.dirP2 === 'Cima') {
-//       bullet2.by -= 10;
-//     }
-//     if (bullet2.dirP2 === 'Baixo') {
-//       bullet2.by += 10;
-//     }
-//     if (bullet2.dirP2 === 'Esquerda') {
-//       bullet2.bx -= 10;
-//     }
-//     if (bullet2.dirP2 === 'Direita') {
-//       bullet2.bx += 10;
-//     } 
-//     bullet2.draw();
-//   });
-// }
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function Zombie(zX, zY) {
@@ -175,11 +212,9 @@ function createZombie() {
     } else return zombieRandomX;
   }
 
-  if (frame % 100 === 0) {
+  if (frame % 10 === 0) {
     objZombie = new Zombie(random(), zombieRandomY)
-    objZombie2 = new Zombie(random(), zombieRandomY)
     arrZombie.push(objZombie);
-    arrZombie2.push(objZombie2);
   }
 }
 
@@ -190,50 +225,47 @@ function reDrawZombies() {
   }
 }
 
-function reDrawZombies2() {
-  for (let i = 0; i < arrZombie2.length; i++) {
-    arrZombie2[i].drawZombie();
-    arrZombie2[i].moveZombie2();
-  }
-}
-
 Zombie.prototype.moveZombie = function () {
 
-  if (this.zY < objSoldier1.y) {
-    this.zombieImg.src = "../topdown-shooter/PNG/Survivor 1/zoimbie1_down.png"
-    this.zY += 2;
-  }
-  if (this.zX < objSoldier1.x) {
-    this.zombieImg.src = "../topdown-shooter/PNG/Survivor 1/zoimbie1_rigth.png"
-    this.zX += 2;
-  }
-  if (this.zY > objSoldier1.y) {
-    this.zombieImg.src = "../topdown-shooter/PNG/Survivor 1/zoimbie1_top.png"
-    this.zY -= 2;
-  }
-  if (this.zX > objSoldier1.x) {
-    this.zombieImg.src = "../topdown-shooter/PNG/Survivor 1/zoimbie1_left.png"
-    this.zX -= 2;
-  }
-}
+  let d1 = Math.sqrt(Math.pow((objSoldier1.x - objZombie.zX), 2) + Math.pow((objSoldier1.y - objZombie.zY), 2))
 
-Zombie.prototype.moveZombie2 = function () {
+  let d2 = Math.sqrt(Math.pow((objSoldier2.x - objZombie.zX), 2) + Math.pow((objSoldier2.y - objZombie.zY), 2))
+  console.log(d1, d2)
 
-  if (this.zY < objSoldier2.y) {
-    this.zombieImg.src = "../topdown-shooter/PNG/Survivor 1/zoimbie1_down.png"
-    this.zY += 2;
-  }
-  if (this.zX < objSoldier2.x) {
-    this.zombieImg.src = "../topdown-shooter/PNG/Survivor 1/zoimbie1_rigth.png"
-    this.zX += 2;
-  }
-  if (this.zY > objSoldier2.y) {
-    this.zombieImg.src = "../topdown-shooter/PNG/Survivor 1/zoimbie1_top.png"
-    this.zY -= 2;
-  }
-  if (this.zX > objSoldier2.x) {
-    this.zombieImg.src = "../topdown-shooter/PNG/Survivor 1/zoimbie1_left.png"
-    this.zX -= 2;
+  if (d1 < d2) {
+    if (this.zY < objSoldier1.y) {
+      this.zombieImg.src = "../topdown-shooter/PNG/Survivor 1/zoimbie1_down.png"
+      this.zY += 2;
+    }
+    if (this.zX < objSoldier1.x) {
+      this.zombieImg.src = "../topdown-shooter/PNG/Survivor 1/zoimbie1_rigth.png"
+      this.zX += 2;
+    }
+    if (this.zY > objSoldier1.y) {
+      this.zombieImg.src = "../topdown-shooter/PNG/Survivor 1/zoimbie1_top.png"
+      this.zY -= 2;
+    }
+    if (this.zX > objSoldier1.x) {
+      this.zombieImg.src = "../topdown-shooter/PNG/Survivor 1/zoimbie1_left.png"
+      this.zX -= 2;
+    }
+  } else if (d1 > d2) {
+    if (this.zY < objSoldier2.y) {
+      this.zombieImg.src = "../topdown-shooter/PNG/Survivor 1/zoimbie1_down.png"
+      this.zY += 2;
+    }
+    if (this.zX < objSoldier2.x) {
+      this.zombieImg.src = "../topdown-shooter/PNG/Survivor 1/zoimbie1_rigth.png"
+      this.zX += 2;
+    }
+    if (this.zY > objSoldier2.y) {
+      this.zombieImg.src = "../topdown-shooter/PNG/Survivor 1/zoimbie1_top.png"
+      this.zY -= 2;
+    }
+    if (this.zX > objSoldier2.x) {
+      this.zombieImg.src = "../topdown-shooter/PNG/Survivor 1/zoimbie1_left.png"
+      this.zX -= 2;
+    }
   }
 }
 
@@ -255,41 +287,25 @@ function createSoldiers() {
   objSoldier2 = new Soldier(imgPath2);
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function drawMap(startFor, maxWidth, startH, imgPath) {
-  for (let i = startFor; i < maxWidth; i += 50) {
-    let Bg = new Image();
-    Bg.src = imgPath
-    game.drawImage(Bg, i, startH, 50, 50)
-  }
+function collision() {
+  arrBullets.forEach(function (bullet, i) {
+    arrZombie.forEach(function (zombie, i) {
+      if ((bullet.bx >= zombie.zX && bullet.bx <= zombie.zX + 40) && (bullet.by >= zombie.zY && bullet.by <= zombie.zY + 40)) {
+        arrZombie.splice(i, 1)
+        arrBullets.splice(i, 2)
+      }
+    })
+  })
 }
 
-function drawHouse(startW, startH, imgPath) {
-  let Bg = new Image();
-  Bg.src = imgPath
-  game.drawImage(Bg, startW, startH, 50, 50)
+function playerCollision() {
+  arrZombie.forEach(function (zombie) {
+    if ((zombie.zX >= objSoldier1.x && zombie.zX <= objSoldier1.x + 38) && (zombie.zY >= objSoldier1.y && zombie.zY <= objSoldier1.y + 38) || (zombie.zX >= objSoldier2.x && zombie.zX <= objSoldier2.x + 38) && (zombie.zY >= objSoldier2.y && zombie.zY <= objSoldier2.y + 38)) {
+      clearInterval(interval)
+      $("#canvas").hide()
+      $("h2").show()
+    }
+  })
 }
-
-function drawObj(startW, startH, imgPath, wObj, hObj) {
-  let Bg = new Image();
-  Bg.src = imgPath
-  game.drawImage(Bg, startW, startH, wObj, hObj)
-}
-
-function drawGame() {
-
-  for (let i = 0; i < arrAssets.length; i++) {
-    drawMap(arrAssets[i].startFor, arrAssets[i].maxWidth, arrAssets[i].startH, arrAssets[i].imgPath)
-  }
-
-  for (let i = 0; i < arrAssetsHouse.length; i++) {
-    drawHouse(arrAssetsHouse[i].startW, arrAssetsHouse[i].startH, arrAssetsHouse[i].imgPath)
-  }
-
-  for (let i = 0; i < arrAssetsObjs.length; i++) {
-    drawObj(arrAssetsObjs[i].startW, arrAssetsObjs[i].startH, arrAssetsObjs[i].imgPath, arrAssetsObjs[i].wObj, arrAssetsObjs[i].hObj)
-  }
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////

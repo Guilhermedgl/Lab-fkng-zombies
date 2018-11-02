@@ -36,7 +36,6 @@ h1 {
     margin: 10px auto;
     display: flex;
     justify-content: center;
-    zborder: 3px dashed green;
 }
 
 .div-start-game {
@@ -44,7 +43,7 @@ h1 {
     justify-content: center;
 }
 
-#start-game {
+.start-game {
     border: 1px solid black;
     color: green;
     width: 200px;
@@ -55,4 +54,3 @@ h1 {
     -webkit-text-stroke: 1px;
     -webkit-text-stroke-color: white;
 }
-

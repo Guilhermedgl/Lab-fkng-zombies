@@ -1,33 +1,31 @@
 let frame = 0
+let interval;
 
 window.onload = function () {
-    $("#canvas").hide()
+    $("#canvas").hide();
+    $("h2").hide()
     document.getElementById('start-game').onclick = function () {
-        $("h1").remove()
-        $("h2").remove()
-        $("button").remove()
+        $("h1").hide()
+        $("button").hide()
         $("canvas").show()
         startGame();
     }
 }
 
 function startGame() {
-    createZombie();
     createSoldiers();
-    setInterval(render, 25);
+    interval = setInterval(render, 25);
 }
 
 function render() {
     game.clearRect(0, 0, 1300, 650);
-
     frame += 1
-    //drawGame();
-    //createZombie();
     objSoldier1.draw();
     objSoldier2.draw();
-    //reDrawBullets2();
+    collision();
     reDrawBullets();
-    //reDrawZombies();
-    //reDrawZombies2();
+    createZombie();
+    reDrawZombies();
+    playerCollision();
 }
 window.addEventListener('keydown', move, false);
