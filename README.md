@@ -6,7 +6,7 @@ My Game - Third commit
 
 Primeiro projeto Ironhack
 
-Tente sobreviver ao apocalipse zumbi com seu amigo.
+Tente sobreviver ao apocalipse zumbi com seu parceiro.
 
 ## Como jogar
 
