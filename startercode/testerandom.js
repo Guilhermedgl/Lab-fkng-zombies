@@ -1,3 +1,4 @@
-let randomDosRandoms = Math.floor(Math.random()* (2 - 1 + 1)) + 1;
 
-console.log(randomDosRandoms)
+let zombieRandomX = Math.floor(Math.random() * (1350 - -50)) + 50;
+
+console.log(zombieRandomX)

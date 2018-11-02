@@ -18,7 +18,7 @@ h2 {
     margin-top: 20px;
     text-align: center;
     font-weight: 500;
-    font-size: 2.5em;
+    font-size: 5em;
     -webkit-text-stroke: 3px;
     -webkit-text-stroke-color: green;
 
@@ -27,7 +27,7 @@ h2 {
 h1 {
     color: white;
     text-align: center;
-    font-size: 5em;
+    font-size: 10em;
     -webkit-text-stroke: 3px;
     -webkit-text-stroke-color: green;
 }
@@ -36,8 +36,7 @@ h1 {
     margin: 10px auto;
     display: flex;
     justify-content: center;
-    border: 3px dashed green;
-
+    zborder: 3px dashed green;
 }
 
 .div-start-game {
