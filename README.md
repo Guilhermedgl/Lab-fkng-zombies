@@ -16,7 +16,7 @@ Tente sobreviver ao apocalipse zumbi com seu amigo.
  + **S** - move para baixo
  + **A** - move para esquerda
  + **D** - move para direita
- + **Space bar** - atira.
+ + **Space bar** - atira
 
 # Player 2 - comandos
 
