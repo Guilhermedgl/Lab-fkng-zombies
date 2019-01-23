@@ -8,9 +8,8 @@ body {
 
     font-family: anton;
     background-color: rgb(39, 211, 91);
-    background-image: url("../topdown-shooter/PNG/Tiles/tile_01.png");
+    background-image: url('./images/tile_01.png');
     background-repeat: repeat;
-
 }
 
 h2 {
@@ -21,7 +20,6 @@ h2 {
     font-size: 5em;
     -webkit-text-stroke: 3px;
     -webkit-text-stroke-color: green;
-
 }
 
 h1 {

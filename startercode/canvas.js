@@ -1,311 +1,184 @@
-let game = document.getElementById("canvas").getContext("2d");
+// const game = document.getElementById('canvas').getContext('2d');
 
-let dir;
-let dirP2;
-let imgPath1 = "../topdown-shooter/PNG/Survivor 1/survivor1_top.png"
-let imgPath2 = "../topdown-shooter/PNG/Survivor 1/manOld_silencer_top.png"
-let zombiePath = "../topdown-shooter/PNG/Survivor 1/zoimbie1_left.png";
-let arrZombie = [];
-let arrZombie2 = [];
-let arrBullets = [];
-let objZombie;
-let objZombie2;
-let objSoldier1;
-let objSoldier2;
+//  variables
+// let dir;
+// const soldierImg = './images/Survivor 1/survivor1_top.png';
+// const zombiePath = './images/Survivor 1/zoimbie1_top.png';
+// const arrZombie = [];
+// const arrZombie2 = [];
+// const arrBullets = [];
+// let zombie;
+// let zombie2;
+// let soldier;
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Moviment
+// function move(e) {
+//   const x = e.keyCode;
+//   switch(x) {
+//     case 65:
+//     soldier.img.src = './images/Survivor 1/survivor1_left.png';
+//     if (soldier.x <= 0) {
+//       soldier.x += 0;
+//     } soldier.x -= 20;
+//     dir = 'Esquerda';
+//     break;
 
-function move(e) {
-  var x = e.keyCode
+//     case 87:
+//       soldier.img.src = './images/Survivor 1/survivor1_top.png'
+//       dir = 'Cima';
+//       if (soldier.y <= 0) {
+//         soldier.y += 0
+//       } soldier.y -= 20;
+//       break;
 
-  switch (x) {
+//     case 68:
+//       soldier.img.src = './images/Survivor 1/survivor1_rigth.png'
+//       if (soldier.x >= 1250) {
+//         soldier.x += 0
+//       } soldier.x += 20;
+//       dir = 'Direita';
+//       break;
 
-    case 65:
-      objSoldier1.img.src = "../topdown-shooter/PNG/Survivor 1/survivor1_left.png"
-      if (objSoldier1.x <= 0) {
-        objSoldier1.x += 0
-      } else objSoldier1.x -= 20;
-      dir = 'Esquerda';
-      break;
+//     case 83:
+//       soldier.img.src = './images/Survivor 1/survivor1_down.png'
+//       if (soldier.y + 37 >= 639) {
+//         soldier.y += 0
+//       } soldier.y += 20
+//       dir = 'Baixo';
+//       break;
 
-    case 87:
-      objSoldier1.img.src = "../topdown-shooter/PNG/Survivor 1/survivor1_top.png"
-      dir = 'Cima';
-      if (objSoldier1.y <= 0) {
-        objSoldier1.y += 0
-      } else objSoldier1.y -= 20;
-      break;
+//     case 32:
+//       const bullet = new Bullet(dirBulletX(), dirBulletY(), dir)
+//       arrBullets.push(bullet)
+//       break;
+//   }
+// }
 
-    case 68:
-      objSoldier1.img.src = "../topdown-shooter/PNG/Survivor 1/survivor1_rigth.png"
-      if (objSoldier1.x >= 1250) {
-        objSoldier1.x += 0
-      } else objSoldier1.x += 20;
-      dir = 'Direita';
-      break;
+// function dirBulletY() {
+//   if (dir === 'Cima') return soldier.y + 3;
+//   if (dir === 'Esquerda') return soldier.y + 15;
+//   if (dir === 'Baixo') return soldier.y + 35;
+//   if (dir === 'Direita') return soldier.y + 30;
+// }
 
-    case 83:
-      objSoldier1.img.src = "../topdown-shooter/PNG/Survivor 1/survivor1_down.png"
-      if (objSoldier1.y + 37 >= 639) {
-        objSoldier1.y += 0
-      } else objSoldier1.y += 20
-      dir = 'Baixo';
-      break;
+// function dirBulletX() {
+//   if (dir === 'Cima') return soldier.x + 30;
+//   if (dir === 'Esquerda') return soldier.x - 5;
+//   if (dir === 'Baixo') return soldier.x + 8;
+//   if (dir === 'Direita') return soldier.x + 30;
+// }
 
-      /////////////////////////////////// ObjSoldier2
+// // Bullet constructor
+// function Bullet(x, y, direction) {
+//   this.x = x;
+//   this.y = y;
+//   this.dir = direction;
+// }
 
-    case 37:
-      objSoldier2.img.src = "../topdown-shooter/PNG/Survivor 1/manOld_silencer_left.png"
-      if (objSoldier2.x <= 0) {
-        objSoldier2.x += 0
-      } else objSoldier2.x -= 20;
-      dirP2 = 'Esquerda';
-      break;
+// Bullet.prototype.draw = function () {
+//   game.strokeRect(this.x, this.y, 2, 2);
+// };
 
-    case 38:
-      objSoldier2.img.src = "../topdown-shooter/PNG/Survivor 1/manOld_silencer_top.png"
-      if (objSoldier2.y <= 0) {
-        objSoldier2.y += 0
-      } else objSoldier2.y -= 20
-      dirP2 = 'Cima';
-      break;
+// // Draw bullets
+// function reDrawBullets() {
+//   arrBullets.forEach((bullet) => {
+//     if (bullet.dir === 'Cima') bullet.y -= 10;
+//     if (bullet.dir === 'Baixo')	bullet.y += 10;
+//     if (bullet.dir === 'Esquerda') bullet.x -= 10;
+//     if (bullet.dir === 'Direita') bullet.x += 10;
+//     bullet.draw();
+//   });
+// }
 
-    case 39:
-      objSoldier2.img.src = "../topdown-shooter/PNG/Survivor 1/manOld_silencer_right.png"
-      dirP2 = 'Direita';
-      if (objSoldier2.x >= 1250) {
-        objSoldier2.x += 0
-      } else objSoldier2.x += 20;
-      break;
+// Zombie constructor
+// function Zombie(x, y) {
+//   this.x = x;
+//   this.y = y;
+//   this.zombieImg = new Image();
+//   this.zombieImg.src = zombiePath;
+// }
 
-    case 40:
-      objSoldier2.img.src = "../topdown-shooter/PNG/Survivor 1/manOld_silencer_down.png"
-      dirP2 = 'Baixo';
-      if (objSoldier2.y + 37 >= 639) {
-        objSoldier2.y += 0
-      } else objSoldier2.y += 20
-      break;
+// Zombie.prototype.drawZombie = function () {
+//   game.drawImage(this.zombieImg, this.x, this.y, 40, 40);
+// }
 
-    case 32:
-      const objBullet = new Bullet(dirBulletX(), dirBulletY(), dir)
-      arrBullets.push(objBullet)
-      break;
+// function createZombie() {
+//   let zombieRandomY = Math.floor(Math.random() * (650 - -50 + 1)) + 0;
+//   function random() {
+//     let zombieRandomX = Math.floor(Math.random() * (-50 - -48)) - 48;
+//     if (zombieRandomX > -50) {
+//       return zombieRandomX + 1300;
+//     } return zombieRandomX;
+//   }
+//   if (frame % 10 === 0) {
+//     zombie = new Zombie(random(), zombieRandomY);
+//     arrZombie.push(zombie);
+//   }
+// }
 
-    case 191:
-      const objBullet2 = new Bullet(dirBulletX2(), dirBulletY2(), dirP2);
-      arrBullets.push(objBullet2);
-      break;
-  }
-}
+// function reDrawZombies() {
+//   for (let i = 0; i < arrZombie.length; i++) {
+//     arrZombie[i].drawZombie();
+//     arrZombie[i].moveZombie();
+//   }
+// }
 
-function dirBulletY2() {
-  if (dirP2 === 'Cima') {
-    return objSoldier2.y + 3
-  }
-  if (dirP2 === 'Esquerda') {
-    return objSoldier2.y + 15
-  }
-  if (dirP2 === 'Baixo') {
-    return objSoldier2.y + 35
-  }
-  if (dirP2 === 'Direita') {
-    return objSoldier2.y + 30
-  }
-}
+// Zombie.prototype.moveZombie = function () {
+//   let d1 = Math.sqrt(Math.pow((soldier.x - zombie.x), 2) + Math.pow((soldier.y - zombie.y), 2));
+//   if (d1 < d2) {
+//     if (this.y < soldier.y) {
+//       this.zombieImg.src = './images/Survivor 1/zoimbie1_down.png'
+//       this.y += 2;
+//     }
+//     if (this.x < soldier.x) {
+//       this.zombieImg.src = './images/Survivor 1/zoimbie1_rigth.png'
+//       this.x += 2;
+//     }
+//     if (this.y > soldier.y) {
+//       this.zombieImg.src = './images/Survivor 1/zoimbie1_top.png'
+//       this.y -= 2;
+//     }
+//     if (this.x > soldier.x) {
+//       this.zombieImg.src = './images/Survivor 1/zoimbie1_left.png'
+//       this.x -= 2;
+//     }
+//   }
+// };
 
-function dirBulletX2() {
-  if (dirP2 === 'Cima') {
-    return objSoldier2.x + 30
-  }
-  if (dirP2 === 'Esquerda') {
-    return objSoldier2.x - 5
-  }
-  if (dirP2 === 'Baixo') {
-    return objSoldier2.x + 8
-  }
-  if (dirP2 === 'Direita') {
-    return objSoldier2.x + 30
-  }
-}
+// //  Soldier contructor
+// function Soldier(imgPath) {
+//   this.x = 600;
+//   this.y = 350;
+//   this.img = new Image();
+//   this.img.src = imgPath;
+// }
 
-function dirBulletY() {
-  if (dir === 'Cima') {
-    return objSoldier1.y + 3
-  }
-  if (dir === 'Esquerda') {
-    return objSoldier1.y + 15
-  }
-  if (dir === 'Baixo') {
-    return objSoldier1.y + 35
-  }
-  if (dir === 'Direita') {
-    return objSoldier1.y + 30
-  }
-}
+// Soldier.prototype.draw = function () {
+//   game.drawImage(this.img, this.x, this.y, 40, 40)
+// };
 
-function dirBulletX() {
-  if (dir === 'Cima') {
-    return objSoldier1.x + 30
-  }
-  if (dir === 'Esquerda') {
-    return objSoldier1.x - 5
-  }
-  if (dir === 'Baixo') {
-    return objSoldier1.x + 8
-  }
-  if (dir === 'Direita') {
-    return objSoldier1.x + 30
-  }
-}
+// function createSoldiers() {
+//   soldier = new Soldier(soldierImg);
+// }
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// //Collision
+// function collision() {
+//   arrBullets.forEach(function (bullet, i) {
+//     arrZombie.forEach(function (zombie, i) {
+//       if ((bullet.x >= zombie.x && bullet.x <= zombie.x + 40) && (bullet.y >= zombie.zY && bullet.y <= zombie.zY + 40)) {
+//         arrZombie.splice(i, 1)
+//         arrBullets.splice(i, 2)
+//       }
+//     })
+//   })
+// }
 
-function Bullet(bx, by, dir) {
-  this.bx = bx;
-  this.by = by;
-  this.dir = dir;
-}
-
-Bullet.prototype.draw = function () {
-  game.strokeRect(this.bx, this.by, 2, 2)
-}
-
-function reDrawBullets() {
-
-  arrBullets.forEach(function (bullet) {
-    if (bullet.dir === 'Cima') {
-      bullet.by -= 10;
-    }
-    if (bullet.dir === 'Baixo') {
-      bullet.by += 10;
-    }
-    if (bullet.dir === 'Esquerda') {
-      bullet.bx -= 10;
-    }
-    if (bullet.dir === 'Direita') {
-      bullet.bx += 10;
-    }
-    bullet.draw();
-  });
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-function Zombie(zX, zY) {
-  this.zX = zX;
-  this.zY = zY;
-  this.zombieImg = new Image();
-  this.zombieImg.src = zombiePath;
-}
-
-Zombie.prototype.drawZombie = function () {
-  game.drawImage(this.zombieImg, this.zX, this.zY, 40, 40)
-}
-
-function createZombie() {
-  let zombieRandomY = Math.floor(Math.random() * (650 - -50 + 1)) + 0;
-
-  function random() {
-    let zombieRandomX = Math.floor(Math.random() * (-50 - -48)) - 48;
-    if (zombieRandomX > -50) {
-      return zombieRandomX + 1300
-    } else return zombieRandomX;
-  }
-
-  if (frame % 10 === 0) {
-    objZombie = new Zombie(random(), zombieRandomY)
-    arrZombie.push(objZombie);
-  }
-}
-
-function reDrawZombies() {
-  for (let i = 0; i < arrZombie.length; i++) {
-    arrZombie[i].drawZombie();
-    arrZombie[i].moveZombie();
-  }
-}
-
-Zombie.prototype.moveZombie = function () {
-
-  let d1 = Math.sqrt(Math.pow((objSoldier1.x - objZombie.zX), 2) + Math.pow((objSoldier1.y - objZombie.zY), 2))
-
-  let d2 = Math.sqrt(Math.pow((objSoldier2.x - objZombie.zX), 2) + Math.pow((objSoldier2.y - objZombie.zY), 2))
-  console.log(d1, d2)
-
-  if (d1 < d2) {
-    if (this.zY < objSoldier1.y) {
-      this.zombieImg.src = "../topdown-shooter/PNG/Survivor 1/zoimbie1_down.png"
-      this.zY += 2;
-    }
-    if (this.zX < objSoldier1.x) {
-      this.zombieImg.src = "../topdown-shooter/PNG/Survivor 1/zoimbie1_rigth.png"
-      this.zX += 2;
-    }
-    if (this.zY > objSoldier1.y) {
-      this.zombieImg.src = "../topdown-shooter/PNG/Survivor 1/zoimbie1_top.png"
-      this.zY -= 2;
-    }
-    if (this.zX > objSoldier1.x) {
-      this.zombieImg.src = "../topdown-shooter/PNG/Survivor 1/zoimbie1_left.png"
-      this.zX -= 2;
-    }
-  } else if (d1 > d2) {
-    if (this.zY < objSoldier2.y) {
-      this.zombieImg.src = "../topdown-shooter/PNG/Survivor 1/zoimbie1_down.png"
-      this.zY += 2;
-    }
-    if (this.zX < objSoldier2.x) {
-      this.zombieImg.src = "../topdown-shooter/PNG/Survivor 1/zoimbie1_rigth.png"
-      this.zX += 2;
-    }
-    if (this.zY > objSoldier2.y) {
-      this.zombieImg.src = "../topdown-shooter/PNG/Survivor 1/zoimbie1_top.png"
-      this.zY -= 2;
-    }
-    if (this.zX > objSoldier2.x) {
-      this.zombieImg.src = "../topdown-shooter/PNG/Survivor 1/zoimbie1_left.png"
-      this.zX -= 2;
-    }
-  }
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-function Soldier(imgPath) {
-  this.x = 600;
-  this.y = 350;
-  this.img = new Image();
-  this.img.src = imgPath;
-}
-
-Soldier.prototype.draw = function () {
-  game.drawImage(this.img, this.x, this.y, 40, 40)
-}
-
-function createSoldiers() {
-  objSoldier1 = new Soldier(imgPath1);
-  objSoldier2 = new Soldier(imgPath2);
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-function collision() {
-  arrBullets.forEach(function (bullet, i) {
-    arrZombie.forEach(function (zombie, i) {
-      if ((bullet.bx >= zombie.zX && bullet.bx <= zombie.zX + 40) && (bullet.by >= zombie.zY && bullet.by <= zombie.zY + 40)) {
-        arrZombie.splice(i, 1)
-        arrBullets.splice(i, 2)
-      }
-    })
-  })
-}
-
-function playerCollision() {
-  arrZombie.forEach(function (zombie) {
-    if ((zombie.zX >= objSoldier1.x && zombie.zX <= objSoldier1.x + 38) && (zombie.zY >= objSoldier1.y && zombie.zY <= objSoldier1.y + 38) || (zombie.zX >= objSoldier2.x && zombie.zX <= objSoldier2.x + 38) && (zombie.zY >= objSoldier2.y && zombie.zY <= objSoldier2.y + 38)) {
-      clearInterval(interval)
-      $("#canvas").hide()
-      $("h2").show()
-    }
-  })
-}
+// function playerCollision() {
+//   arrZombie.forEach(function (zombie) {
+//     if ((zombie.x >= soldier.x && zombie.x <= soldier.x + 38) && (zombie.y >= soldier.y && zombie.y <= soldier.y + 38) || (zombie.x >= objSoldier2.x && zombie.x <= objSoldier2.x + 38) && (zombie.y >= objSoldier2.y && zombie.y <= objSoldier2.y + 38)) {
+//       clearInterval(interval)
+//       $('#canvas').hide()
+//       $('h2').show()
+//     }
+//   })
+// }
