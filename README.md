@@ -1,7 +1,7 @@
 
 ## ZOMBIES
 
-My first project at Ironhack
+My first project at Ironhack.
 
 Kill zombies as much as you can or they will eat you!
 
@@ -13,9 +13,7 @@ Kill zombies as much as you can or they will eat you!
  + **D** - Right
  + **Space bar** - Shoot
 
-https://github.com/Guilhermedgl/Lab-fkng-zombies
-
-## Things that I want to improve.
+## Improvement.
 
 + Second Player
 + Rank with the greatests scores
@@ -24,6 +22,13 @@ https://github.com/Guilhermedgl/Lab-fkng-zombies
 + Add obstacles
 + Add more to weapons
 
+## Skills
 
-
-
++ JavaScript
++ Object-orientation
++ Array methods
++ Assets
++ Jquery
++ HTML
++ CSS
++ Canvas
