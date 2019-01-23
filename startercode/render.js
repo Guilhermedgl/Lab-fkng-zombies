@@ -3,6 +3,7 @@
 /* eslint-disable no-unused-vars */
 const game = document.getElementById('canvas').getContext('2d');
 
+
 let frame = 0;
 let interval;
 
@@ -15,6 +16,7 @@ function render() {
   createZombie();
   reDrawZombies();
   playerCollision();
+  updateScore();
 }
 
 function startGame() {
@@ -23,13 +25,14 @@ function startGame() {
 }
 
 window.onload = function () {
-  console.log('skapoksop');
   $('#canvas').hide();
+  $('.div-score').hide();
   $('h2').hide();
   document.getElementById('start-game').onclick = function () {
     $('h1').hide();
     $('button').hide();
     $('canvas').show();
+    $('.div-score').show();
     startGame();
   };
 };

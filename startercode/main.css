@@ -30,18 +30,21 @@ h1 {
 }
 
 #canvas {
+    position: absolute;
     margin: 10px auto;
     display: flex;
     justify-content: center;
+    /* border: 1px solid black; */
 }
 
 .div-start-game {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .start-game {
-    border: 1px solid black;
+    border: 2px solid green;
     color: green;
     width: 200px;
     height: 50px;
@@ -50,4 +53,21 @@ h1 {
     font-family: anton;
     -webkit-text-stroke: 1px;
     -webkit-text-stroke-color: white;
+}
+
+.score {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 3em;
+    -webkit-text-stroke: 2px;
+    -webkit-text-stroke-color: green;
+}
+
+#score {
+    margin: 0;
+    text-align: center;
+    justify-content: center;
 }

@@ -11,7 +11,7 @@ function Bullet(x, y, direction) {
 }
 
 Bullet.prototype.draw = function () {
-  game.fillRect(this.x, this.y, 3, 3);
+  game.strokeRect(this.x, this.y, 2, 2);
 };
 
 // Draw bullets

@@ -18,11 +18,11 @@ function Zombie(x, y) {
 }
 
 Zombie.prototype.drawZombie = function () {
-  game.drawImage(this.zombieImg, this.x, this.y, 40, 40);
+  game.drawImage(this.zombieImg, this.x, this.y, 30, 30);
 };
 
 function createZombie() {
-  if (frame % 50 === 0) {
+  if (frame % 25 === 0) {
     zombieTop = new Zombie(Math.floor((Math.random() * 1300)), -2);
     arrZombie.push(zombieTop);
     zombieLeft = new Zombie(-10, (Math.random() * 650));

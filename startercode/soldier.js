@@ -14,7 +14,7 @@ function Soldier(imgPath) {
 }
 
 Soldier.prototype.draw = function () {
-  game.drawImage(this.img, this.x, this.y, 40, 40);
+  game.drawImage(this.img, this.x, this.y, 30, 30);
 };
 
 function createSoldiers() {

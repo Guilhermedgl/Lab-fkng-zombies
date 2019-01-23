@@ -3,6 +3,7 @@
 
 // variables
 const arrBullets = [];
+let score = 0;
 
 //  Collision
 function collision() {
@@ -11,6 +12,8 @@ function collision() {
       if ((bullet.x >= zombie.x && bullet.x <= zombie.x + 40) && (bullet.y >= zombie.y && bullet.y <= zombie.y + 40)) {
         arrBullets.splice(i, 1);
         arrZombie.splice(idx, 1);
+        score += 1;
+        console.log('let', score);
       } else if (bullet.x > 1300 || bullet.x < 0 || bullet.y < 0 || bullet.y > 641)arrBullets.splice(i, 1);
     });
   });
