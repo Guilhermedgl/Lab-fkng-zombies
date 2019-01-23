@@ -7,7 +7,7 @@ const game = document.getElementById('canvas').getContext('2d');
 let frame = 0;
 let interval;
 
-function render() {
+const render = () => {
   game.clearRect(0, 0, 1300, 650);
   frame += 1;
   soldier.draw();
@@ -17,18 +17,18 @@ function render() {
   reDrawZombies();
   playerCollision();
   updateScore();
-}
+};
 
-function startGame() {
+const startGame = () => {
   createSoldiers();
   interval = setInterval(render, 30);
-}
+};
 
-window.onload = function () {
+window.onload = () => {
   $('#canvas').hide();
   $('.div-score').hide();
   $('h2').hide();
-  document.getElementById('start-game').onclick = function () {
+  document.getElementById('start-game').onclick = () => {
     $('h1').hide();
     $('button').hide();
     $('canvas').show();

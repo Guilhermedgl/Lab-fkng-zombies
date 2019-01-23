@@ -8,7 +8,7 @@ let dir;
 const soldierImg = './images/survivor1_top.png';
 
 // Moviment
-function move(e) {
+const move = (e) => {
   const x = e.keyCode;
   switch (x) {
     case 65:
@@ -48,4 +48,4 @@ function move(e) {
       arrBullets.push(bullet);
       break;
   }
-}
+};

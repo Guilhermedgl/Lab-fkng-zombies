@@ -13,7 +13,6 @@ function collision() {
         arrBullets.splice(i, 1);
         arrZombie.splice(idx, 1);
         score += 1;
-        console.log('let', score);
       } else if (bullet.x > 1300 || bullet.x < 0 || bullet.y < 0 || bullet.y > 641)arrBullets.splice(i, 1);
     });
   });
