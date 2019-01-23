@@ -7,8 +7,6 @@ Kill zombies as much as you can or they will eat you!
 
 ## How to play
 
-# Player
-
  + **W** - Up
  + **S** - Down
  + **A** - Left
