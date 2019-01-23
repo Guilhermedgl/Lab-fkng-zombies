@@ -1,32 +1,31 @@
 
-My Game - Third commit
-
-
 ## ZOMBIES
 
-Primeiro projeto Ironhack
+My first project at Ironhack
 
-Tente sobreviver ao apocalipse zumbi com seu parceiro.
+Kill zombies as much as you can or they will eat you!
 
-## Como jogar
+## How to play
 
-# Player 1 - comandos
+# Player
 
- + **W** - move para cima
- + **S** - move para baixo
- + **A** - move para esquerda
- + **D** - move para direita
- + **Space bar** - atira
-
-# Player 2 - comandos
-
- + **Arrow up** - move para cima
- + **Arrow down** - move para baixo
- + **Arrow left** - move para esquerda
- + **Arrow right** - move para direita
- + **?** - atira
+ + **W** - Up
+ + **S** - Down
+ + **A** - Left
+ + **D** - Right
+ + **Space bar** - Shoot
 
 https://github.com/Guilhermedgl/Lab-fkng-zombies
+
+## Things that I want to improve.
+
++ Second Player
++ Rank with the greatests scores
++ Improve zombies movimentts
++ Add more type of zombies
++ Add obstacles
++ Add more to weapons
+
 
 
 
