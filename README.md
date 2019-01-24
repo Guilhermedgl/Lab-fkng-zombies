@@ -5,7 +5,7 @@ My first project at Ironhack.
 
 Kill zombies as much as you can or they will eat you!
 
-++ play here: https://guilhermedgl.github.io/Lab-fkng-zombies/startercode/
+play here: https://guilhermedgl.github.io/Lab-fkng-zombies/startercode/
 
 ## How to play
 
