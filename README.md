@@ -11,7 +11,7 @@ Kill zombies as much as you can or they will eat you!
  + **S** - Down
  + **A** - Left
  + **D** - Right
- + **Space bar** - Shoot
+ + **Space-bar** - Shoot
 
 ## Improvement.
 
