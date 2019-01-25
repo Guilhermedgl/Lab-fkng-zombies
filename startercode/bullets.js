@@ -27,13 +27,13 @@ function reDrawBullets() {
 
 function dirBulletY() {
   if (dir === 'Cima') return soldier.y + 3;
-  if (dir === 'Esquerda') return soldier.y + 15;
+  if (dir === 'Esquerda') return soldier.y + 10;
   if (dir === 'Baixo') return soldier.y + 35;
-  if (dir === 'Direita') return soldier.y + 30;
+  if (dir === 'Direita') return soldier.y + 20;
 }
 
 function dirBulletX() {
-  if (dir === 'Cima') return soldier.x + 30;
+  if (dir === 'Cima') return soldier.x + 20;
   if (dir === 'Esquerda') return soldier.x - 5;
   if (dir === 'Baixo') return soldier.x + 8;
   if (dir === 'Direita') return soldier.x + 30;

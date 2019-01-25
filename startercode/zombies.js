@@ -22,12 +22,12 @@ Zombie.prototype.drawZombie = function () {
 };
 
 function createZombie() {
-  if (frame % 25 === 0) {
+  if (frame % 18 === 0) {
     zombieTop = new Zombie(Math.floor((Math.random() * 1300)), -2);
     arrZombie.push(zombieTop);
     zombieLeft = new Zombie(-10, (Math.random() * 650));
     arrZombie.push(zombieLeft);
-    zombieDown = new Zombie((Math.random() * 650), 660);
+    zombieDown = new Zombie((Math.random() * 1300), 660);
     arrZombie.push(zombieDown);
     zombieRight = new Zombie(1350, (Math.random() * 650));
     arrZombie.push(zombieRight);

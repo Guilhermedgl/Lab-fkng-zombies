@@ -2,8 +2,6 @@
 /* eslint-disable func-names */
 /* eslint-disable no-unused-vars */
 const game = document.getElementById('canvas').getContext('2d');
-
-
 let frame = 0;
 let interval;
 
